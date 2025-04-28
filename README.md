@@ -15,11 +15,11 @@
 
 | 프로젝트 요소 | 각종 설명 |
 |:---|:---|
-| Java 21
-| Spring Boot
-| Spring Data JPA
-| Hibernate ORM
-| MySQL
-| Logback
+| Java 21 | 자바 버전
+| Spring Boot | 프레임워크
+| Spring Data JPA | ORM
+| Hibernate ORM | ORM
+| MySQL | DB
+| Logback | 로그
 
 ---
