@@ -17,30 +17,58 @@ public class UserService {
 
     private final UserRepository userRepository;
 
+    /**
+     * 사용자 등록
+     * @param user
+     */
     public void saveUser(User user) {
-        User saveUser = new User(user.getEmail(),
-                user.getName(),
-                LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-
-        User savedUser = userRepository.save(user);
+        User newUser  = new User();
+        newUser.setName(user.getName());
+        newUser.setCreateDate(getNow());
+        userRepository.save(newUser );
     }
 
-    public User getUser(String email) {
-        return userRepository.findById(email).orElse(null);
+    /**
+     * 단일 사용자 조회
+     * @param id
+     * @return
+     */
+    public User getUser(Long id) {
+        return userRepository.findById(id).orElse(null);
     }
 
+    /**
+     * 사용자 목록 조회
+     * @return
+     */
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
+    /**
+     * 사용자 수정
+     * @param user
+     */
     public void updateUser(User user) {
-        User findedUser = userRepository.findById(user.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
+        User findedUser = userRepository.findById(user.getId()).orElseThrow(() -> new IllegalArgumentException("User not found"));
         findedUser.setName(user.getName());
-        userRepository.save(user);
+        findedUser.setCreateDate(getNow());
+        userRepository.save(findedUser);
     }
 
-    public void deleteUser(String email) {
-        userRepository.deleteById(email);
+    /**
+     * 사용자 삭제
+     * @param id
+     */
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
     }
 
+    /**
+     * 현재시간 반환
+     * @return
+     */
+    private static String getNow() {
+        return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+    }
 }

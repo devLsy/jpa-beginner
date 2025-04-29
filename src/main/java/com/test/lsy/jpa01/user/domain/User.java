@@ -1,19 +1,23 @@
 package com.test.lsy.jpa01.user.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
 @Table(name = "user")
 @Getter
 @Setter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
+@NoArgsConstructor
 public class User {
     @Id
-    private String email;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String name;
+    @Column(name = "create_date")
     private String createDate;
+
+    public User(String name, String createDate) {
+        this.name = name;
+        this.createDate = createDate;
+    }
 }
