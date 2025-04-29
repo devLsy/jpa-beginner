@@ -9,12 +9,12 @@ import lombok.Setter;
 @Entity
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
+@Table(name = "customer_info")
 public class Customer {
 
-    // 식별자 시퀀스 방식(저장 전에 시퀀스를 먼저 조회 한 뒤 id를 확보하고 insert)
+    // 식별자 자동 세팅(DB가 세팅)
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_seq_gen")
-    @SequenceGenerator(name = "customer_seq_gen", sequenceName = "customer_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 }

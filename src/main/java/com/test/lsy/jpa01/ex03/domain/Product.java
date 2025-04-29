@@ -8,13 +8,12 @@ import lombok.Setter;
 
 @Entity
 @Getter @Setter
-@Table(name = "product")
+@Table(name = "product_info")
 @NoArgsConstructor @AllArgsConstructor
 public class Product {
 
-    // 식별자 자동 세팅
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
     private String name;
 }

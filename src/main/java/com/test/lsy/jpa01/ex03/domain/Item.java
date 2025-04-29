@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter @Setter
-@Table(name = "item")
+@Table(name = "item_info")
 public class Item {
     
     // 식별자 개발자가 직접 아이디 세팅
