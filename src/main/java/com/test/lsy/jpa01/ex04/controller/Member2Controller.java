@@ -3,6 +3,7 @@ package com.test.lsy.jpa01.ex04.controller;
 import com.test.lsy.jpa01.ex04.domain.Member2;
 import com.test.lsy.jpa01.ex04.repository.Member2Repository;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -27,7 +28,7 @@ public class Member2Controller {
 
     @GetMapping("/{id}")
     @Operation(summary = "멤버 조회", description = "멤버를 단건 조회합니다.")
-    public Member2 findById(@PathVariable(name = "id") Long id) {
+    public Member2 findById(@Parameter(name = "id", description = "아이디") @PathVariable(name = "id") Long id) {
         return member2Repository.findById(id).orElse(null);
     }
 
@@ -39,7 +40,7 @@ public class Member2Controller {
 
     @PutMapping("/{id}")
     @Operation(summary = "멤버 수정", description = "멤버를 수정합니다.")
-    public Member2 update(@PathVariable(name = "id") Long id, @RequestBody Member2 newMember2) {
+    public Member2 update(@Parameter(name = "id", description = "아이디") @PathVariable(name = "id") Long id, @RequestBody Member2 newMember2) {
         Member2 findedMember2 = member2Repository.findById(id).orElseThrow();
         findedMember2.setName(newMember2.getName());
         findedMember2.setAddress(newMember2.getAddress());
@@ -48,7 +49,7 @@ public class Member2Controller {
 
     @DeleteMapping("/{id}")
     @Operation(summary = "멤버 삭제", description = "멤버를 삭제합니다.")
-    public void delete(@PathVariable(name = "id") Long id) {
+    public void delete(@Parameter(name = "id", description = "아이디") @PathVariable(name = "id") Long id) {
         if (member2Repository.existsById(id)) {
             member2Repository.deleteById(id);
         }
