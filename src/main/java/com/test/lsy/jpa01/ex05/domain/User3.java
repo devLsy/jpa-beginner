@@ -24,7 +24,6 @@ public class User3 {
     private String name;
 
     // user_details 테이블의 컬럼
-    // @SecondaryTable에 저장되는 필드들은 항상 즉시 로딩(EAGER)으로 강제됨(연관관계가 아님)
     @Column(table = "user3_details")
     private String address;
 
