@@ -7,7 +7,7 @@
 ## 📐 프로젝트 가이드
 
 - 이 프로젝트는 [최범군의 JPA 입문 강의](https://www.youtube.com/watch?v=Zwq2McbFOn4&list=PLwouWTPuIjUi9Sih9mEci4Rqhz1VqiQXX&ab_channel=%EC%B5%9C%EB%B2%94%EA%B7%A0)를 참고하여 진행합니다.
-- 처음에는 강의를 따라하며 진행하고, 이후에는 다시 새로 만들어 복습하고 스스로 기능을 추가/변경할 예정입니다.
+- 1개 강의를 듣고 바로 실습 하는 방식으로 진행 예정입니다.
 
 ---
 
