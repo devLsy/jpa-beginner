@@ -1,5 +1,6 @@
 package com.test.lsy.jpa01.ex02.member.domain;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,6 +13,7 @@ public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(hidden = true)
     private Long id;
 
     @Column(name = "member_name", nullable = false, length = 100)

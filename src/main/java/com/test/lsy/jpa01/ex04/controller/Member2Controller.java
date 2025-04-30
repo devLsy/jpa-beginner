@@ -1,6 +1,6 @@
 package com.test.lsy.jpa01.ex04.controller;
 
-import com.test.lsy.jpa01.ex04.domain.Member2;
+import com.test.lsy.jpa01.ex04.domain.User2;
 import com.test.lsy.jpa01.ex04.repository.Member2Repository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -22,29 +22,29 @@ public class Member2Controller {
 
     @PostMapping
     @Operation(summary = "멤버 저장", description = "멤버를 저장합니다.")
-    public Member2 save(@RequestBody Member2 member2) {
-        return member2Repository.save(member2);
+    public User2 save(@RequestBody User2 user2) {
+        return member2Repository.save(user2);
     }
 
     @GetMapping("/{id}")
     @Operation(summary = "멤버 조회", description = "멤버를 단건 조회합니다.")
-    public Member2 findById(@Parameter(name = "id", description = "아이디") @PathVariable(name = "id") Long id) {
+    public User2 findById(@Parameter(name = "id", description = "아이디") @PathVariable(name = "id") Long id) {
         return member2Repository.findById(id).orElse(null);
     }
 
     @GetMapping
     @Operation(summary = "멤버 전체 조회", description = "멤버 전체를 조회합니다.")
-    public List<Member2> findAll() {
+    public List<User2> findAll() {
         return member2Repository.findAll();
     }
 
     @PutMapping("/{id}")
     @Operation(summary = "멤버 수정", description = "멤버를 수정합니다.")
-    public Member2 update(@Parameter(name = "id", description = "아이디") @PathVariable(name = "id") Long id, @RequestBody Member2 newMember2) {
-        Member2 findedMember2 = member2Repository.findById(id).orElseThrow();
-        findedMember2.setName(newMember2.getName());
-        findedMember2.setAddress(newMember2.getAddress());
-        return member2Repository.save(findedMember2);
+    public User2 update(@Parameter(name = "id", description = "아이디") @PathVariable(name = "id") Long id, @RequestBody User2 newUser2) {
+        User2 findedUser2 = member2Repository.findById(id).orElseThrow();
+        findedUser2.setName(newUser2.getName());
+        findedUser2.setAddress(newUser2.getAddress());
+        return member2Repository.save(findedUser2);
     }
 
     @DeleteMapping("/{id}")

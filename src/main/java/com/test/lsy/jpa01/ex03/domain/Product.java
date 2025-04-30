@@ -1,5 +1,6 @@
 package com.test.lsy.jpa01.ex03.domain;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,6 +15,7 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(hidden = true)
     private Long id;
     private String name;
 }

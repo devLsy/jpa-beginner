@@ -1,5 +1,6 @@
 package com.test.lsy.jpa01.ex01.user.domain;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,6 +12,7 @@ import lombok.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Schema(hidden = true)
     private Long id;
     private String name;
     @Column(name = "create_date")
