@@ -44,7 +44,7 @@ public class Member2Controller {
         User2 findedUser2 = member2Repository.findById(id).orElseThrow();
         findedUser2.setName(newUser2.getName());
         findedUser2.setAddress(newUser2.getAddress());
-        return member2Repository.save(findedUser2);
+        return findedUser2;
     }
 
     @DeleteMapping("/{id}")

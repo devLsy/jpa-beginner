@@ -42,7 +42,7 @@ public class ProductController {
     public Product update(@PathVariable(name = "id") Long id, @RequestBody Product product) {
         Product findProduct = productRepository.findById(id).orElse(null);
         findProduct.setName(product.getName());
-        return productRepository.save(findProduct);
+        return findProduct;
     }
 
     @Operation(summary = "상품 삭제", description = "상품을 삭제합니다.")

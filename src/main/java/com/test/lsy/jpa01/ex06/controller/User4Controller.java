@@ -44,7 +44,7 @@ public class User4Controller {
         User5 findedUser5 = user4Repository.findById(id).orElseThrow();
         findedUser5.setName(newUser5.getName());
         findedUser5.setEmails(newUser5.getEmails());
-        return user4Repository.save(findedUser5);
+        return findedUser5;
     }
 
     @DeleteMapping("/{id}")

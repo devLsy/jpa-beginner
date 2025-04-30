@@ -43,7 +43,7 @@ public class ItemController {
     public Item update(@PathVariable(name = "id") String id, @RequestBody Item item) {
         Item findItem = itemRepository.findById(id).orElse(null);
         findItem.setName(item.getName());
-        return itemRepository.save(findItem);
+        return findItem;
     }
 
     @Operation(summary = "아이템 삭제", description = "아이템을 삭제합니다.")

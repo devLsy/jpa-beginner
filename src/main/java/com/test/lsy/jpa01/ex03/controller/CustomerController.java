@@ -42,7 +42,7 @@ public class CustomerController {
     public Customer update(@PathVariable(name = "id") Long id, @RequestBody Customer customer) {
         Customer findCustomer = customerRepository.findById(id).orElse(null);
         findCustomer.setName(customer.getName());
-        return customerRepository.save(findCustomer);
+        return findCustomer;
     }
 
     @Operation(summary = "고객 삭제", description = "고객을 삭제합니다.")

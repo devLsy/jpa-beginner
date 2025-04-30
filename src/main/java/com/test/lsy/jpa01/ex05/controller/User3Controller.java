@@ -44,7 +44,7 @@ public class User3Controller {
         User3 findedUser3 = user3Repository.findById(id).orElseThrow();
         findedUser3.setName(newUser3.getName());
         findedUser3.setAddress(newUser3.getAddress());
-        return user3Repository.save(findedUser3);
+        return findedUser3;
     }
 
     @DeleteMapping("/{id}")

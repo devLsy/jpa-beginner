@@ -43,7 +43,7 @@ public class User7Controller {
     public User7 update(@Parameter(name = "id", description = "아이디") @PathVariable(name = "id") Long id, @RequestBody User7 newUser7) {
         User7 findedUser7 = user7Repository.findById(id).orElseThrow();
         findedUser7.setName(newUser7.getName());
-        return user7Repository.save(findedUser7);
+        return findedUser7;
     }
 
     @DeleteMapping("/{id}")

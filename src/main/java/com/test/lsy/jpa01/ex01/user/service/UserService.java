@@ -53,7 +53,6 @@ public class UserService {
         User findedUser = userRepository.findById(user.getId()).orElseThrow(() -> new IllegalArgumentException("User not found"));
         findedUser.setName(user.getName());
         findedUser.setCreateDate(getNow());
-        userRepository.save(findedUser);
     }
 
     /**

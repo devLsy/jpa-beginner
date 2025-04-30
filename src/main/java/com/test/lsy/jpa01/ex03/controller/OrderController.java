@@ -42,7 +42,7 @@ public class OrderController {
     public Order update(@PathVariable(name = "id") Long id, @RequestBody Order order) {
         Order findedOrder = orderRepository.findById(id).orElse(null);
         findedOrder.setDescription(order.getDescription());
-        return orderRepository.save(findedOrder);
+        return findedOrder;
     }
 
     @Operation(summary = "주문 삭제", description = "주문을 삭제합니다.")

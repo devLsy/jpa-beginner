@@ -53,7 +53,7 @@ public class MemberService {
         Member findedMember = getMember(member.getId());
         findedMember.setName(member.getName());
         findedMember.setStatus(member.getStatus());
-        return memberRepository.save(findedMember);
+        return findedMember;
     }
 
     /**
