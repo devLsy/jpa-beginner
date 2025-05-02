@@ -15,10 +15,10 @@ spring:
     restart.enabled: true
   datasource:
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-    url: ENC(ADc+Aw9ff3e70OnNZ0HSO5fcMfC0u/ldIDcUg005neoc/lrZOIxNYE44D5JZmzpeKfgV5GmtmvYOn8rb4RGS56sJ1rs48OgaA3g6ClA9X22r7l8gfho+sw==)
+    url: ENC(9kMPcrFkPUJJNJuziDxj79x0qN5hwJoLbMyWVmF9NyXtbj8q6O+Gm2WdKGtWWxuQzsAQa6mv/4U=)
     hikari:
-      username: ENC(U8HEwcFhNn2ZuHCqRctB0Q==)
-      password: ENC(K2y710AlbrE3bpqR5wEsmA==)
+      username: ENC(2TS0dvAtzLY04f4hCLBO3w==)
+      password: ENC(arl4E69k7sNCrplaLyAKDg==)
       connectionTimeout: 10000
       maximum-pool-size: 15
       max-lifetime: 600000
