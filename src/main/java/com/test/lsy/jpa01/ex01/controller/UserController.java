@@ -18,7 +18,7 @@ public class UserController {
 
     private final UserService userService;
 
-    @Operation(summary = "사용자 저장", description = "name을 받아 새로운 사용자를 저장합니다.")
+    @Operation(summary = "사용자 저장", description = "새로운 사용자를 저장합니다.")
     @PostMapping
     public void save(@RequestBody User user) {
         userService.saveUser(user);
@@ -27,7 +27,7 @@ public class UserController {
     @Operation(summary = "특정 사용자 조회", description = "아이디로 특정 사용자를 조회합니다.")
     @GetMapping("/{id}")
     public User getUser(
-            @Parameter(description = "조회할 사용자 이메일")
+            @Parameter(description = "조회할 사용자 아이디")
             @PathVariable(name = "id") Long id) {
         return userService.getUser(id);
     }
@@ -40,8 +40,8 @@ public class UserController {
 
     @Operation(summary = "사용자 이름 수정", description = "아이디로 사용자를 찾아 이름을 수정합니다.")
     @PutMapping("/{id}")
-    public void updateUser(@RequestBody User user) {
-        userService.updateUser(user);
+    public User updateUser(@PathVariable(name = "id") Long id, @RequestBody User user) {
+        return userService.updateUser(id, user);
     }
 
     @Operation(summary = "사용자 삭제", description = "아이디로 사용자를 삭제합니다.")

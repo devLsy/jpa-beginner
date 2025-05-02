@@ -5,6 +5,7 @@ import com.test.lsy.jpa01.ex01.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -17,10 +18,7 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    /**
-     * 사용자 등록
-     * @param user
-     */
+    @Transactional
     public void saveUser(User user) {
         User newUser  = new User();
         newUser.setName(user.getName());
@@ -28,45 +26,28 @@ public class UserService {
         userRepository.save(newUser );
     }
 
-    /**
-     * 단일 사용자 조회
-     * @param id
-     * @return
-     */
+    @Transactional(readOnly = true)
     public User getUser(Long id) {
         return userRepository.findById(id).orElse(null);
     }
 
-    /**
-     * 사용자 목록 조회
-     * @return
-     */
+    @Transactional(readOnly = true)
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    /**
-     * 사용자 수정
-     * @param user
-     */
-    public void updateUser(User user) {
-        User findedUser = userRepository.findById(user.getId()).orElseThrow(() -> new IllegalArgumentException("User not found"));
+    @Transactional
+    public User updateUser(Long id, User user) {
+        User findedUser = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("User not found"));
         findedUser.setName(user.getName());
-        findedUser.setCreateDate(getNow());
+        return findedUser;
     }
 
-    /**
-     * 사용자 삭제
-     * @param id
-     */
+    @Transactional
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
 
-    /**
-     * 현재시간 반환
-     * @return
-     */
     private static String getNow() {
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
