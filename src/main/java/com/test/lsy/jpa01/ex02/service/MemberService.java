@@ -5,21 +5,19 @@ import com.test.lsy.jpa01.ex02.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
 @Slf4j
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class MemberService {
 
     private final MemberRepository memberRepository;
 
-    /**
-     * 멤버 등록
-     * @param member
-     * @return
-     */
+    @Transactional
     public Member saveMember(Member member) {
         Member newMember = new Member();
         newMember.setName(member.getName());
@@ -27,39 +25,22 @@ public class MemberService {
         return memberRepository.save(newMember);
     }
 
-    /**
-     * 멤버 단건 조회
-     * @param id
-     * @return
-     */
     public Member getMember(Long id) {
         return memberRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 회원이 없습니다. id=" + id));
     }
 
-    /**
-     * 멤버 전체 조회
-     * @return
-     */
     public List<Member> getAllMembers() {
         return memberRepository.findAll();
     }
 
-    /**
-     * 멤버 수정
-     * @param member
-     * @return
-     */
-    public Member updateMember(Member member) {
-        Member findedMember = getMember(member.getId());
+    @Transactional
+    public Member updateMember(Long id, Member member) {
+        Member findedMember = getMember(id);
         findedMember.setName(member.getName());
         findedMember.setStatus(member.getStatus());
         return findedMember;
     }
-
-    /**
-     * 멤버 삭제
-     * @param id
-     */
+    @Transactional
     public void deleteMember(Long id) {
         memberRepository.deleteById(id);
     }

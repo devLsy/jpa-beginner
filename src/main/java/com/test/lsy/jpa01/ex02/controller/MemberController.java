@@ -20,7 +20,7 @@ public class MemberController {
 
     private final MemberService memberService;
 
-    @Operation(summary = "회원 저장", description = "회원 이름과 상태를 받아 저장합니다.")
+    @Operation(summary = "회원 저장", description = "회원정보를 저장합니다.")
     @PostMapping
     public Member saveMember(@RequestBody Member member) {
         return memberService.saveMember(member);
@@ -38,10 +38,10 @@ public class MemberController {
         return memberService.getAllMembers();
     }
 
-    @Operation(summary = "회원 수정", description = "ID로 회원을 찾아 이름과 상태를 수정합니다.")
+    @Operation(summary = "회원 수정", description = "ID로 회원을 찾아 정보를 수정합니다.")
     @PutMapping("/{id}")
-    public Member updateMember(@RequestBody Member member) {
-        return memberService.updateMember(member);
+    public Member updateMember(@PathVariable(name = "id") Long id, @RequestBody Member member) {
+        return memberService.updateMember(id, member);
     }
 
     @Operation(summary = "회원 삭제", description = "아이디로 회원을 삭제합니다.")
