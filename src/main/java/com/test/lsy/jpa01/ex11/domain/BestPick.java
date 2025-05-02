@@ -1,4 +1,4 @@
-package com.test.lsy.jpa01.user11.domain;
+package com.test.lsy.jpa01.ex11.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

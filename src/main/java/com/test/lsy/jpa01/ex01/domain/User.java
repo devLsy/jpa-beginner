@@ -1,4 +1,4 @@
-package com.test.lsy.jpa01.ex01.user.domain;
+package com.test.lsy.jpa01.ex01.domain;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
@@ -6,12 +6,11 @@ import lombok.*;
 
 @Entity
 @Table(name = "user")
-@Getter
-@Setter
+@Getter @Setter
 @NoArgsConstructor
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Schema(hidden = true)
     private Long id;
     private String name;

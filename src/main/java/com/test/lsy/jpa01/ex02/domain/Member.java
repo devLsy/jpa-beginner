@@ -1,4 +1,4 @@
-package com.test.lsy.jpa01.ex02.member.domain;
+package com.test.lsy.jpa01.ex02.domain;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;

@@ -1,7 +1,7 @@
-package com.test.lsy.jpa01.user11.controller;
+package com.test.lsy.jpa01.ex11.controller;
 
-import com.test.lsy.jpa01.user11.domain.User11;
-import com.test.lsy.jpa01.user11.repository.User11Repository;
+import com.test.lsy.jpa01.ex11.domain.User11;
+import com.test.lsy.jpa01.ex11.repository.User11Repository;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

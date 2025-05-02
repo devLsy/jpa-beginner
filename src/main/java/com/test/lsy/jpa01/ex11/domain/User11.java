@@ -1,4 +1,4 @@
-package com.test.lsy.jpa01.user11.domain;
+package com.test.lsy.jpa01.ex11.domain;
 
 import com.test.lsy.jpa01.common.BaseTimeEntity;
 import jakarta.persistence.Column;

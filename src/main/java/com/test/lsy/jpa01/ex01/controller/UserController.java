@@ -1,7 +1,7 @@
-package com.test.lsy.jpa01.ex01.user.controller;
+package com.test.lsy.jpa01.ex01.controller;
 
-import com.test.lsy.jpa01.ex01.user.domain.User;
-import com.test.lsy.jpa01.ex01.user.service.UserService;
+import com.test.lsy.jpa01.ex01.domain.User;
+import com.test.lsy.jpa01.ex01.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;

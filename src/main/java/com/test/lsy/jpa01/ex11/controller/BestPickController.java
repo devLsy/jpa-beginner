@@ -1,7 +1,7 @@
-package com.test.lsy.jpa01.user11.controller;
+package com.test.lsy.jpa01.ex11.controller;
 
-import com.test.lsy.jpa01.user11.domain.BestPick;
-import com.test.lsy.jpa01.user11.repository.BestPickRepository;
+import com.test.lsy.jpa01.ex11.domain.BestPick;
+import com.test.lsy.jpa01.ex11.repository.BestPickRepository;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

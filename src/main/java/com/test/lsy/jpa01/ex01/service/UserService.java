@@ -1,7 +1,7 @@
-package com.test.lsy.jpa01.ex01.user.service;
+package com.test.lsy.jpa01.ex01.service;
 
-import com.test.lsy.jpa01.ex01.user.domain.User;
-import com.test.lsy.jpa01.ex01.user.repository.UserRepository;
+import com.test.lsy.jpa01.ex01.domain.User;
+import com.test.lsy.jpa01.ex01.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
